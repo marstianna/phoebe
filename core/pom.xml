@@ -11,5 +11,11 @@
 
     <artifactId>core</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.phoebe</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
