@@ -17,7 +17,7 @@ import java.util.Stack;
 public class ExpressionCollectionParser {
     public static final String SPLIT_MARK = ",";
 
-    public static boolean parser(Map<String,String> inputs,ExpressionDO[] expressions) throws IllegalExpressionException {
+    public static boolean parse(Map<String,String> inputs, ExpressionDO[] expressions) throws IllegalExpressionException {
         Stack<TmpResult> stack = new Stack<>();
         for(int i = 0; i < expressions.length ; i++ ){
             OperationEnum operation = expressions[i].getOperation();
@@ -46,6 +46,7 @@ public class ExpressionCollectionParser {
                 boolean expressionResult = false;
                 String value = inputs.get(expressions[i].getName());
                 if(value == null){
+                    continue;
                     //不再执行下面的判断
                 }
                 //只有数字才能比较大小
@@ -169,7 +170,7 @@ public class ExpressionCollectionParser {
         expression6.setOperation(OperationEnum.RIGHT_BRACKET);
 
         try {
-            System.out.println(ExpressionCollectionParser.parser(
+            System.out.println(ExpressionCollectionParser.parse(
                     ImmutableMap.of("a","test","b","World"),
                     new ExpressionDO[]{expression0,expression1,expression2,expression3,expression4,expression5,expression6}));
         } catch (IllegalExpressionException e) {

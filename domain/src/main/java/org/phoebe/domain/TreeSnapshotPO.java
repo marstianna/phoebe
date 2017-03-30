@@ -3,6 +3,8 @@ package org.phoebe.domain;
 import lombok.Data;
 
 /**
+ * 树的快找
+ *
  * Created by niefeng on 16/8/19.
  */
 @Data

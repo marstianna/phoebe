@@ -26,7 +26,7 @@ public class NodeDO {
     }
 
     public boolean isShoted(Map<String,String> inputs) throws IllegalExpressionException {
-        return ArrayUtils.isEmpty(expressions) ? true : ExpressionCollectionParser.parser(inputs,expressions);
+        return ArrayUtils.isEmpty(expressions) ? true : ExpressionCollectionParser.parse(inputs,expressions);
     }
 
 }

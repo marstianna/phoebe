@@ -10,6 +10,5 @@ public class ExpressionPO {
     private int id;
     //@see OperationEnum
     private int operation;
-    private int dictionaryId;
-    private String paramValueList;
+    private int paramValueId;
 }

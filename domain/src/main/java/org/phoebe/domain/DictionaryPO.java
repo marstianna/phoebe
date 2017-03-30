@@ -1,15 +1,13 @@
 package org.phoebe.domain;
 
-/**
- * Created by niefeng on 16/8/19.
- */
-
 import lombok.Data;
 
 /**
- * id int primary key auto_increment,
- dictionary_name varchar(63) not null,
- value varchar(63) not null
+ *
+ * 字典
+ *
+ * 例如:dictionaryName:订单状态,value:orderStatus
+ * Created by niefeng on 16/8/19.
  */
 @Data
 public class DictionaryPO {
