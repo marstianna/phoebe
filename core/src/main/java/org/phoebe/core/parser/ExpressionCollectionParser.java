@@ -1,15 +1,14 @@
 package org.phoebe.core.parser;
 
-import com.google.common.collect.ImmutableMap;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Stack;
+
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.phoebe.commons.enums.OperationEnum;
 import org.phoebe.core.domain.ExpressionDO;
 import org.phoebe.core.exception.IllegalExpressionException;
-
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Stack;
 
 /**
  * Created by niefeng on 19/01/2017.
@@ -18,6 +17,9 @@ public class ExpressionCollectionParser {
     public static final String SPLIT_MARK = ",";
 
     public static boolean parse(Map<String,String> inputs, ExpressionDO[] expressions) throws IllegalExpressionException {
+        if(expressions == null || expressions.length == 0){
+            return true;
+        }
         Stack<TmpResult> stack = new Stack<>();
         for(int i = 0; i < expressions.length ; i++ ){
             OperationEnum operation = expressions[i].getOperation();
@@ -143,39 +145,42 @@ public class ExpressionCollectionParser {
 
 
     public static void main(String[] args) {
-        //(a.equals("test")) || (b.equals("World"))
-        ExpressionDO expression0 = new ExpressionDO();
-        expression0.setOperation(OperationEnum.LEFT_BRACKET);
+        ////(a.equals("test")) || (b.equals("World"))
+        //ExpressionDO expression0 = new ExpressionDO();
+        //expression0.setOperation(OperationEnum.LEFT_BRACKET);
+        //
+        //ExpressionDO expression1 = new ExpressionDO();
+        //expression1.setName("a");
+        //expression1.setOperation(OperationEnum.EQUALS);
+        //expression1.setValue("test");
+        //
+        //ExpressionDO expression2 = new ExpressionDO();
+        //expression2.setOperation(OperationEnum.RIGHT_BRACKET);
+        //
+        //ExpressionDO expression3 = new ExpressionDO();
+        //expression3.setOperation(OperationEnum.OR);
+        //
+        //ExpressionDO expression4 = new ExpressionDO();
+        //expression4.setOperation(OperationEnum.LEFT_BRACKET);
+        //
+        //ExpressionDO expression5 = new ExpressionDO();
+        //expression5.setName("b");
+        //expression5.setOperation(OperationEnum.EQUALS);
+        //expression5.setValue("World1");
+        //
+        //ExpressionDO expression6 = new ExpressionDO();
+        //expression6.setOperation(OperationEnum.RIGHT_BRACKET);
+        //
+        //try {
+        //    System.out.println(ExpressionCollectionParser.parse(
+        //            ImmutableMap.of("a","test","b","World"),
+        //            new ExpressionDO[]{expression0,expression1,expression2,expression3,expression4,expression5,expression6}));
+        //} catch (IllegalExpressionException e) {
+        //    e.printStackTrace();
+        //}
+        char c = 'a';
 
-        ExpressionDO expression1 = new ExpressionDO();
-        expression1.setName("a");
-        expression1.setOperation(OperationEnum.EQUALS);
-        expression1.setValue("test");
-
-        ExpressionDO expression2 = new ExpressionDO();
-        expression2.setOperation(OperationEnum.RIGHT_BRACKET);
-
-        ExpressionDO expression3 = new ExpressionDO();
-        expression3.setOperation(OperationEnum.OR);
-
-        ExpressionDO expression4 = new ExpressionDO();
-        expression4.setOperation(OperationEnum.LEFT_BRACKET);
-
-        ExpressionDO expression5 = new ExpressionDO();
-        expression5.setName("b");
-        expression5.setOperation(OperationEnum.EQUALS);
-        expression5.setValue("World1");
-
-        ExpressionDO expression6 = new ExpressionDO();
-        expression6.setOperation(OperationEnum.RIGHT_BRACKET);
-
-        try {
-            System.out.println(ExpressionCollectionParser.parse(
-                    ImmutableMap.of("a","test","b","World"),
-                    new ExpressionDO[]{expression0,expression1,expression2,expression3,expression4,expression5,expression6}));
-        } catch (IllegalExpressionException e) {
-            e.printStackTrace();
-        }
+        System.out.println(NumberUtils.isNumber(String.valueOf(c)));
 
     }
 }
